@@ -1,0 +1,44 @@
+{% extends 'main_base.html' %}
+
+
+
+{% block login %}
+
+<h1>Оплата доступа к тесту</h1>
+<p>Стоимость: <strong>650 ₸</strong></p>
+
+<a href="/update-pay">БАС</a>
+
+<div class="payment-info">
+    <h3>Как оплатить через Kaspi Bank:</h3>
+    <ol>
+        <li>Откройте приложение Kaspi.kz</li>
+        <li>Перейдите в раздел "Переводы"</li>
+        <li>Выберите "Клиенту Kaspi"</li>
+        <li>Введите номер телефона: <strong>+7 (705) 728-82-86</strong></li>
+        <li>Должен выйти <strong>"Гульмира Т."</strong></li>
+        <li>Сумма: <strong>650 ₸</strong></li>
+        <li>Укажите назначение платежа: "email по которой зарегистрировались"</li>
+        <li>Подтвердите платеж</li>
+    </ol>
+</div>
+
+<!-- Форма загрузки PDF -->
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <div class="file-upload" onclick="document.getElementById('receiptFile').click()">
+        <strong>Загрузите чек об оплате (PDF)</strong><br>
+        <span id="fileName">Нажмите чтобы выбрать файл</span>
+    </div>
+    <input type="file" id="receiptFile" name="file" accept=".pdf" style="display: none;" required>
+
+    <br><br>
+    <button type="submit">Отправить чек на проверку</button>
+</form>
+
+
+
+{% endblock %}
+
+
+
+
